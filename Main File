@@ -1,0 +1,45 @@
+import SwiftUI
+
+struct ContentView: View {
+    @State private var username: String = ""
+    @State private var password: String = ""
+    
+    var body: some View {
+        VStack {
+            Image("logo") // Replace "logo" with the name of your logo image
+            
+            TextField("Username", text: $username)
+                .padding()
+                .background(Color.gray)
+                .cornerRadius(5.0)
+                .padding(.bottom, 20)
+            
+            SecureField("Password", text: $password)
+                .padding()
+                .background(Color.gray)
+                .cornerRadius(5.0)
+                .padding(.bottom, 20)
+            
+            Button(action: {
+                // Perform login action here
+                // You can check the entered username and password
+                // against a stored database or make an API request
+            }) {
+                Text("Log In")
+                    .foregroundColor(.white)
+                    .frame(width: 200, height: 50)
+                    .background(Color.blue)
+                    .cornerRadius(10.0)
+            }
+            
+            Spacer()
+        }
+        .padding()
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
+}
